@@ -1,5 +1,5 @@
 class Solution:
-    def generateParenthesis(self, n: int) -> List[str]:
+    def generateParenthesis(self, n: int) -> list[str]:
         res = []
         def backtrack(open_count: int, closed_count: int, path: list):
             if open_count == closed_count == n:
