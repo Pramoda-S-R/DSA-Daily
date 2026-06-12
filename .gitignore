@@ -7,5 +7,7 @@ wheels/
 *.egg-info
 
 *.out
+*.exe
+.env
 .env.*
 **/.venv/

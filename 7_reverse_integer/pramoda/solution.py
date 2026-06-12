@@ -2,22 +2,21 @@ class Solution:
     def reverse(self, x: int) -> int:
         MAX = 2_147_483_647
 
-        num = x
-        neg = False
+        sign = -1 if x < 0 else 1
+        x = abs(x)
 
-        if x < 0:
-            neg = True
-            num = -x
+        rev = 0
 
-        res = 0
-        while (num > 0):
-            res = (res * 10) + (num % 10)
-            num = num // 10
+        while x:
+            digit = x % 10
 
-            if res > MAX:
+            if rev > (MAX - digit) // 10:
                 return 0
-        
-        return -res if neg else res
+
+            rev = rev * 10 + digit
+            x //= 10
+
+        return sign * rev
 
 s = Solution()
-print(s.reverse(-2147483648))
+print(s.reverse(-120))
