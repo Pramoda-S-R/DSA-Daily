@@ -1,4 +1,3 @@
-# put your solution here
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
         """
@@ -15,3 +14,7 @@ class Solution(object):
             window += char
             max_len = max(max_len, len(window)) 
         return max_len
+
+
+s = Solution()
+print(s.lengthOfLongestSubstring("abcabcbb"))
