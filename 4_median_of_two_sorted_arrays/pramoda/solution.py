@@ -1,35 +1,33 @@
 class Solution:
     def findMedianSortedArrays(self, nums1: list[int], nums2: list[int]) -> float:
-        i = 0
-        j = 0
-
+        if len(nums1) > len(nums2):
+            nums1, nums2 = nums2, nums1
+        
         m = len(nums1)
         n = len(nums2)
 
-        m1 = -1
-        m2 = -1
+        left = 0
+        right = m
 
-        for _ in range((m + n) // 2 + 1):
-            m2 = m1
+        while (left <= right):
+            i = (left + right) // 2
+            j = (m + n + 1) // 2 - i
 
-            if i != m and j != n:
-                if nums1[i] > nums2[j]:
-                    m1 = nums2[j]
-                    j += 1
-                else:
-                    m1 = nums1[i]
-                    i += 1
-            elif i < m:
-                m1 = nums1[i]
-                i += 1
+            left1 = float("-inf") if i == 0 else nums1[i - 1]
+            right1 = float("inf") if i == m else nums1[i]
+
+            left2 = float("-inf") if j == 0 else nums2[j - 1]
+            right2 = float("inf") if j == n else nums2[j]
+
+            if left1 <= right2 and left2 <= right1:
+                if (m + n) % 2:
+                    return max(left1, left2)
+                return (max(left1, left2) + min(right1, right2)) / 2.0
+
+            elif left1 > right2:
+                right = i - 1
             else:
-                m1 = nums2[j]
-                j += 1
-
-        if (m+n) % 2 == 1:
-            return m1
-        else:
-            return (m1 + m2) / 2.0
+                left = i + 1
 
 s = Solution()
-print(s.findMedianSortedArrays([1, 2, 3], [200, 250]))
+print(s.findMedianSortedArrays([1, 2, 3], [200, 250, 300]))
