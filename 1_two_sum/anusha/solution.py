@@ -12,3 +12,10 @@ class Solution(object):
                 # Return the indices as a list of integers instead of printing a string
                     if current_sum == target:
                         return [i, j]
+
+s = Solution()
+
+nums = [2, 7, 11, 15]
+target = 9
+
+print(s.twoSum(nums, target))
