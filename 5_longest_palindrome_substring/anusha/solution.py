@@ -28,3 +28,6 @@ class Solution(object):
     # Step 4: Map back to the original string indices
         start = (center_index - max_len) // 2
         return s[start : start + max_len]
+
+s = Solution()
+print(s.longestPalindrome("babad"))
