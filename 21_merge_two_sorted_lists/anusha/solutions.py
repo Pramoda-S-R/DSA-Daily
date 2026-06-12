@@ -1,3 +1,13 @@
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def node(head: ListNode):
+    while head:
+        print(head.val, "->", end=" ")
+        head = head.next
+
 class Solution(object):
     def mergeTwoLists(self, list1, list2):
         """
@@ -14,3 +24,8 @@ class Solution(object):
             current = current.next
         current.next = list1 or list2
         return temp.next
+
+s = Solution()
+l1 = ListNode(1, ListNode(2, ListNode(4)))
+l2 = ListNode(1, ListNode(3, ListNode(4)))
+node(s.mergeTwoLists(l1, l2))
