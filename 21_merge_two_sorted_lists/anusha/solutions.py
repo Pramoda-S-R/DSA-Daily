@@ -1,3 +1,5 @@
+from typing import Optional
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -8,13 +10,8 @@ def node(head: ListNode):
         print(head.val, "->", end=" ")
         head = head.next
 
-class Solution(object):
-    def mergeTwoLists(self, list1, list2):
-        """
-        :type list1: Optional[ListNode]
-        :type list2: Optional[ListNode]
-        :rtype: Optional[ListNode]
-        """
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         temp = current = ListNode()
         while list1 and list2:
             if list1.val < list2.val:

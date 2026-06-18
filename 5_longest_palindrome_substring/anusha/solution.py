@@ -1,9 +1,5 @@
-class Solution(object):
-    def longestPalindrome(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
         t = "^#" + "#".join(s) + "#$"
         n = len(t)
     # p[i] stores the radius of the palindrome centered at t[i]
