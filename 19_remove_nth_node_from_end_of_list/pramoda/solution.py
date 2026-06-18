@@ -29,4 +29,4 @@ class Solution:
 
 s = Solution()
 l = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
-node(s.removeNthFromEnd, 2)
+node(s.removeNthFromEnd(l, 2))
