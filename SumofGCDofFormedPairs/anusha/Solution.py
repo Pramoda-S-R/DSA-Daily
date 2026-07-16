@@ -14,17 +14,16 @@ class Solution(object):
         n = len(nums)
         prefixGcd = []
         
-        # Step 1: Build the prefix GCD array
         current_max = 0
         for num in nums:
             if num > current_max:
                 current_max = num
             prefixGcd.append(get_gcd(num, current_max))
             
-        # Step 2: Sort the array
+    
         prefixGcd.sort()
         
-        # Step 3: Two-pointer pairing and summing
+
         total_sum = 0
         left = 0
         right = n - 1
